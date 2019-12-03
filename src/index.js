@@ -17,7 +17,7 @@
    isAllTrue([100, 2, 3, 4, 5], n => n < 10) // вернет false
  */
 function isAllTrue(array, fn) {
-    if (Array.isArray(array) == false || array[0] == undefined) {
+    if ({}.toString.call(array) != '[object Array]' || array.length == 0) {
         throw new Error('empty array')
     }
     if (typeof(fn) != 'function') {
@@ -49,7 +49,7 @@ function isAllTrue(array, fn) {
    isSomeTrue([1, 2, 3, 4, 5], n => n > 20) // вернет false
  */
 function isSomeTrue(array, fn) {
-    if (Array.isArray(array) == false || array.length == 0) {
+    if ({}.toString.call(array) != '[object Array]' || array.length == 0) {
         throw new Error('empty array');
     }
     if (typeof(fn) != 'function') {
@@ -142,7 +142,7 @@ function calculator(number = 0) {
             let result = this.default;
 
             for (let i = 0; i < args.length; i++) {
-                result = result/args[i];
+                result = result / args[i];
             }
 
             return result;
